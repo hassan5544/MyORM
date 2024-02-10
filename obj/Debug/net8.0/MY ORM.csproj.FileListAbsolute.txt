@@ -1,0 +1,22 @@
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\MY ORM.exe
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\MY ORM.deps.json
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\MY ORM.runtimeconfig.json
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\MY ORM.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\MY ORM.pdb
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\System.Data.SqlClient.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.csproj.AssemblyReference.cache
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.AssemblyInfoInputs.cache
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.AssemblyInfo.cs
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.csproj.CoreCompileInputs.cache
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.csproj.CopyComplete
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\refint\MY ORM.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.pdb
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.genruntimeconfig.cache
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\ref\MY ORM.dll
