@@ -28,7 +28,7 @@ public class ORM
             throw new AggregateException("Entity must have a primary key Named Id");
     }
     
-    private string GetTableName<T>()
+    private  string GetTableName<T>()
     {
         return typeof(T).Name;
     }
@@ -44,6 +44,7 @@ public class ORM
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
             command.ExecuteNonQuery();
+            connection.Close();
         }
     }
     
@@ -151,6 +152,32 @@ public class ORM
         }
         
         
+    }
+
+    public  bool CheckIfTableExists<T>()
+    {
+        string tableName = GetTableName<T>();
+        string query = $"SELECT Object_id FROM sys.tables WHERE name = '{tableName}'";
+        return (bool)ExcuteScalar(query);
+    }
+    private  object ExcuteScalar(string query)
+    {
+        object result;
+        using (SqlConnection conn = new SqlConnection(_connectionString))
+        {
+            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteScalar();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        return result;
     }
     #endregion
 
