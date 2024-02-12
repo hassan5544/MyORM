@@ -7,20 +7,20 @@ public class DBSet<T>
 {
     private readonly T Entity; 
 
+
     public DBSet(T entity)
     {
         Entity = entity;
-        AddMigrations(Entity);
+        //AddMigrations(Entity);
     }
-
-    public void AddMigrations(T Entity)
-    {
-        PropertyInfo[] properties = this.Entity.GetType().GetProperties();
-        
-        foreach (var property in properties)
-        {
-            var type = property.PropertyType.ToString();
-        }
-        
-    }
+   //public void AddMigrations(T Entity)
+   //{
+   //    PropertyInfo[] properties = this.Entity.GetType().GetProperties();
+   //    
+   //    foreach (var property in properties)
+   //    {
+   //        var type = property.PropertyType.ToString();
+   //    }
+   //    
+   //}
 }
