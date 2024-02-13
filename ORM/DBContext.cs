@@ -3,28 +3,27 @@ using System.Reflection;
 
 namespace MY_ORM.ORM;
 
-public class ORM
+public abstract class DBContext
 {
     private readonly string _connectionString;
 
-    private ORM(string connectionString)
+    public DBContext(string connectionString)
     {
         _connectionString = connectionString;
     }
-
-    public static ORM CreateNewORM(string connectionstring)
-    {
-        if (string.IsNullOrEmpty(connectionstring))
-            throw new ArgumentException("Please set connection string");
-        return new ORM(connectionstring);
-    }
+    //public static ORM CreateNewOrm(string connectionstring)
+    //{
+    //    if (string.IsNullOrEmpty(connectionstring))
+    //        throw new ArgumentException("Please set connection string");
+    //    return new(connectionstring);
+    //}
     #region private functions
 
     private void ValidateBaseEo<T>(T baseEo)
     {
         if (baseEo == null)
             throw new ArgumentException("nullable value cant be inserted");
-        if (typeof(T).GetProperties().Where(x => x.Name == "Id").Count() == 0)
+        if (typeof(T).GetProperties().All(x => x.Name != "Id"))
             throw new AggregateException("Entity must have a primary key Named Id");
     }
     
@@ -37,7 +36,7 @@ public class ORM
     {
         return typeof(T).GetProperties();
     }
-    private void ExecuteNonQuery(string query)
+    protected void ExecuteNonQuery(string query)
     {
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
@@ -105,7 +104,15 @@ public class ORM
             string primaryKey = "Id";
             var properties = typeof(T).GetProperties();
 
-            string setStatment = string.Join(",", properties.Where(x => x.Name != primaryKey).Select(p => $"{p.Name} = '{p.GetValue(baseEo)}'"));
+            string setStatment = string.Join(",", properties.Where(x => x.Name != primaryKey).Select(p =>
+            {
+                if(p.GetValue(baseEo).GetType().Equals(typeof(string)))
+                    return $"{p.Name} = '{p.GetValue(baseEo)}'";
+                else
+                {
+                    return $"{p.Name} = {p.GetValue(baseEo)}";
+                }
+            }));
         
             string query = $"UPDATE {tableName} SET {setStatment} WHERE {primaryKey}='{properties.Single(p => p.Name == primaryKey).GetValue(baseEo)}'";
             ExecuteNonQuery(query);
@@ -126,7 +133,7 @@ public class ORM
             string primaryKey = "Id";
             var properties = typeof(T).GetProperties();
 
-            string query = $"DELETE FROM {tableName} WHERE Id = {properties.Single(p => p.Name == primaryKey).GetValue(baseEo)}";
+            string query = $"DELETE FROM {tableName} WHERE Id = '{properties.Single(p => p.Name == primaryKey).GetValue(baseEo)}'";
             ExecuteNonQuery(query);
         }
         catch (Exception e)
@@ -160,7 +167,7 @@ public class ORM
         string query = $"SELECT Object_id FROM sys.tables WHERE name = '{tableName}'";
         return (bool)ExcuteScalar(query);
     }
-    private  object ExcuteScalar(string query)
+    protected object ExcuteScalar(string query)
     {
         object result;
         using (SqlConnection conn = new SqlConnection(_connectionString))
