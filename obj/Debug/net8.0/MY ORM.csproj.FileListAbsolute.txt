@@ -20,3 +20,4 @@ C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\refint\MY ORM.dll
 C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.pdb
 C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.genruntimeconfig.cache
 C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\ref\MY ORM.dll
+C:\Users\AL-ITYAN\RiderProjects\MY ORM\MY ORM\obj\Debug\net8.0\MY ORM.sourcelink.json

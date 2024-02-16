@@ -5,18 +5,27 @@ namespace MY_ORM.ORM;
 
 public abstract class DBContext
 {
-    private readonly string _connectionString;
+    private static string _connectionString { get; set; }
+    private static bool _connectionSeted = false;
 
-    public DBContext(string connectionString)
+    protected DBContext()
     {
-        _connectionString = connectionString;
+        
     }
-    //public static ORM CreateNewOrm(string connectionstring)
-    //{
-    //    if (string.IsNullOrEmpty(connectionstring))
-    //        throw new ArgumentException("Please set connection string");
-    //    return new(connectionstring);
-    //}
+
+    public virtual void NewDBContext(string connectionString)
+    {
+        if (_connectionSeted == false)
+        {
+            _connectionString = connectionString;
+            _connectionSeted = true;
+        }
+        else
+        {
+            throw new AggregateException("Cant set new Connection for the application after it was setted ");
+        }
+    }
+
     #region private functions
 
     private void ValidateBaseEo<T>(T baseEo)

@@ -8,11 +8,7 @@ public class DBSet<T>
     private readonly T Entity; 
 
 
-    public DBSet(T entity)
-    {
-        Entity = entity;
-        //AddMigrations(Entity);
-    }
+
    //public void AddMigrations(T Entity)
    //{
    //    PropertyInfo[] properties = this.Entity.GetType().GetProperties();

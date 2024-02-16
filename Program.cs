@@ -1,12 +1,19 @@
-﻿using MY_ORM.ContextFactory;
+﻿using System.Net.Http.Headers;
+using MY_ORM.ContextFactory;
 using MY_ORM.Model;
 using MY_ORM.ORM;
+using MY_ORM.Repositories;
 
 class Program
 {
     static void Main(string[] args)
     {
-        string connectionString = "server=.; database=Hackatthon-Watch-Party; Integrated Security=true";
+        string connectionString = "server=.; database=TestingORMCreation; Integrated Security=true";
+
+        Factory.CreateDBContext(connectionString);
+        //Products products = Products.CreateProduct("item" , 1000);
+        //ProductsRepository repository = new ProductsRepository();
+        //repository.Insert(products);
         //ORM orm = ORM.CreateNewOrm(connectionString);
 
         //Factory.CreateDBContext(connectionString, orm);
@@ -21,9 +28,9 @@ class Program
         //}
 
         //var ProductToUpdate = products[0];
-        
+
         //ProductToUpdate.Name = "Updated Name";
-        
+
         //orm.Update(ProductToUpdate);
 
         //orm.Delete(products[0]);
