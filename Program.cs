@@ -11,9 +11,9 @@ class Program
         string connectionString = "server=.; database=TestingORMCreation; Integrated Security=true";
 
         Factory.CreateDBContext(connectionString);
-        //Products products = Products.CreateProduct("item" , 1000);
-        //ProductsRepository repository = new ProductsRepository();
-        //repository.Insert(products);
+        Products products = Products.CreateProduct("item" , 1000);
+        ProductsRepository repository = new ProductsRepository();
+        repository.GetAll<Products>();
         //ORM orm = ORM.CreateNewOrm(connectionString);
 
         //Factory.CreateDBContext(connectionString, orm);

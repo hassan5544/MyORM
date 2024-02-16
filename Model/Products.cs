@@ -12,7 +12,7 @@ public class Products
 
     private Products(string name ,decimal price)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         Name = name;
         Price = price;
     }

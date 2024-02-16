@@ -89,7 +89,15 @@ public abstract class DBContext
         try
         {
             string tableName = GetTableName<T>();
-            string columns = string.Join(",", typeof(T).GetProperties().ToString());
+            string columns = string.Join(",", typeof(T).GetProperties().Select(p =>
+            {
+                if(p.GetValue(baseEo).GetType().Equals(typeof(string)))
+                    return $"{p.Name}";
+                else
+                {
+                    return $"{p.Name}";
+                }
+            }));
             string values  = string.Join(",", typeof(T).GetProperties().Select(p => $"'{p.GetValue(baseEo)}'"));
         
             string query = $"INSERT INTO {tableName} ({columns}) VALUES ({values})";

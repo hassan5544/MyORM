@@ -16,7 +16,7 @@ public class Factory : ORM.DBContext
         factory.NewDBContext(connectionstring);
         _connectionStringforCreatingDatabase = Factory.CreateNewDatabaseConnectionString(connectionstring);
         
-        string query = factory.CreateDatabaseIfNotExists(connectionstring);
+        string query = factory.CreateDatabaseIfNotExists(_connectionStringforCreatingDatabase);
         Factory.ExcuteQueryForCreateDatabase(query);
 
         PropertyInfo[] DbSets = typeof(Factory).GetProperties();
@@ -41,7 +41,7 @@ public class Factory : ORM.DBContext
                         case "Guid":
                             PropertyName = "uniqueidentifier";
                             break;
-                        case "decimal":
+                        case "Decimal":
                             PropertyName = "Decimal(19,6)";
                             break;
                         default:
@@ -52,6 +52,7 @@ public class Factory : ORM.DBContext
                 }
 
                 CreateTableQuery += ")";
+                CreateTableQuery = CreateTableQuery.Replace(",)", ")");
                 
                 factory.ExecuteNonQuery(CreateTableQuery);
                 
