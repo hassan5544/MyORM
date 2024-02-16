@@ -23,6 +23,7 @@ public class Factory : ORM.DBContext
         foreach (var dbSet in DbSets)
         {
             var TableName = dbSet.Name;
+            // TODO :Filter the Properties to Take the Required ones
             var properties =  dbSet.PropertyType.GetGenericArguments().FirstOrDefault().GetProperties();
             if (!factory.CheckTable(TableName))
             {
