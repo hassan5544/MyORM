@@ -9,8 +9,7 @@ public class Products
     public Guid Id { get; set; }
     public string Name { get; set; }
     public decimal Price { get; set; }
-    [NotMapped]
-    public List<int> Count { get; set; } // local use
+
 
     private Products(string name ,decimal price)
     {
@@ -19,6 +18,10 @@ public class Products
         Price = price;
     }
 
+    public Products()
+    {
+        
+    }
     public static Products CreateProduct(string NewName , decimal Newprice)
     {
         Products NewProduct = new Products(NewName , Newprice);
